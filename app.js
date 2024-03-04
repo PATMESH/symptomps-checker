@@ -1,7 +1,7 @@
 const { spawn } = require('child_process');
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 
@@ -43,6 +43,10 @@ app.post('/', async (req, res) => {
         res.status(500).json({ error });
     }
 });
+
+app.get("/" , (req,res)=>{
+    res.json("Running...");
+})
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
